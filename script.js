@@ -1,16 +1,1 @@
-const toggle = document.querySelector('.menu-toggle');
-const nav = document.querySelector('.nav');
-toggle?.addEventListener('click', () => {
-  const isOpen = nav.classList.toggle('open');
-  toggle.setAttribute('aria-expanded', String(isOpen));
-  toggle.setAttribute('aria-label', isOpen ? 'Close navigation' : 'Open navigation');
-});
-nav?.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
-  nav.classList.remove('open');
-  toggle?.setAttribute('aria-expanded', 'false');
-}));
-document.querySelector('#newsletter-form')?.addEventListener('submit', (event) => {
-  event.preventDefault();
-  const message = document.querySelector('#form-message');
-  message.textContent = 'Thanks for your interest. This demo form is not connected to an email list yet.';
-});
+const toggle=document.querySelector('.menu-toggle');const nav=document.querySelector('.nav');if(toggle&&nav){toggle.addEventListener('click',()=>{const open=nav.classList.toggle('open');toggle.setAttribute('aria-expanded',String(open));toggle.textContent=open?'✕':'☰'});nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');toggle.setAttribute('aria-expanded','false');toggle.textContent='☰'}))}const y=document.getElementById('year');if(y)y.textContent=new Date().getFullYear();const f=document.getElementById('newsletter-form'),m=document.getElementById('form-message');if(f&&m)f.addEventListener('submit',e=>{e.preventDefault();m.textContent='Thanks for your interest. This demo form does not save or send your email yet.'});
